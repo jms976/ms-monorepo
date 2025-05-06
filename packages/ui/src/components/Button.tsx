@@ -11,7 +11,7 @@ const Button = ({ label, onClick }: ButtonProps) => {
         padding: '8px 16px',
         borderRadius: 4,
         backgroundColor: '#0070f3',
-        color: 'pink',
+        color: 'white',
         border: 'none',
         cursor: 'pointer',
       }}>

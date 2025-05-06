@@ -1,5 +1,5 @@
-import { Button } from 'packages/ui/src';
+import { Button } from '@common/ui';
 
 export default function Home() {
-  return <Button label="name" />;
+  return <Button label="test-app" />;
 }

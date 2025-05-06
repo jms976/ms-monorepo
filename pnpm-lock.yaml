@@ -51,7 +51,7 @@ importers:
   apps/test-app:
     dependencies:
       '@common/ui':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/ui
       next:
         specifier: 15.3.1

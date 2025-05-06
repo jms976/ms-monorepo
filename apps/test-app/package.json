@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@common/ui": "workspace:^",
+    "@common/ui": "workspace:*",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

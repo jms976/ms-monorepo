@@ -10,6 +10,9 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "Node",
     "baseUrl": ".",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@common/ui": ["packages/ui/src"]
+    }
   }
 }
