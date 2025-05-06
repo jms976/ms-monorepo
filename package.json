@@ -1,0 +1,42 @@
+{
+  "name": "ms-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "app/*",
+    "packages/*",
+    "storybook"
+  ],
+  "scripts": {
+    "prepare": "husky",
+    "add": "pnpm --filter",
+    "test-app": "pnpm --filter test-app",
+    "ui": "pnpm --filter @common/ui",
+    "storybook": "pnpm --filter storybook",
+    "test-type": "tsc",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx ."
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint": "8.x",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}

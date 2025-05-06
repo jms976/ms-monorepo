@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build directory
+dist/
+build/
+
+# misc
+.DS_Store
+.env*
+.idea/
+.vscode/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+logs
+
+# cache
+*.tsbuildinfo
+
+# turborepo
+.turbo
