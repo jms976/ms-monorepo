@@ -10,8 +10,10 @@
   "scripts": {
     "prepare": "husky",
     "add": "pnpm --filter",
-    "test-app": "pnpm --filter test-app",
+    "next-app": "pnpm --filter next-app",
+    "react-app": "pnpm --filter react-app",
     "ui": "pnpm --filter @common/ui",
+    "utils": "pnpm --filter @common/utils",
     "storybook": "pnpm --filter storybook",
     "test-type": "tsc",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ."

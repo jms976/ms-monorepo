@@ -12,7 +12,8 @@
     "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
-      "@common/ui": ["packages/ui/src"]
+      "@common/ui": ["packages/ui/src"],
+      "@common/utils": ["packages/utils/src"]
     }
   }
 }

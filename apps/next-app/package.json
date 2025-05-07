@@ -1,5 +1,5 @@
 {
-  "name": "test-app",
+  "name": "next-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@common/ui": "workspace:*",
     "next": "15.3.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "@common/ui": "workspace:*",
+    "@common/utils": "workspace:*"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
