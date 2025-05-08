@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@common/types':
+        specifier: workspace:*
+        version: link:packages/types
       '@types/node':
         specifier: ^22.15.3
         version: 22.15.14
@@ -50,6 +53,9 @@ importers:
 
   apps/next-app:
     dependencies:
+      '@common/styles':
+        specifier: workspace:*
+        version: link:../../packages/styles
       '@common/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -96,6 +102,9 @@ importers:
       '@common/styles':
         specifier: workspace:*
         version: link:../../packages/styles
+      '@common/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       '@common/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -155,10 +164,16 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
+  packages/types:
+    devDependencies:
+      typescript:
+        specifier: ^5.4.3
+        version: 5.8.3
+
   packages/ui:
     dependencies:
       '@common/styles':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../styles
       react:
         specifier: ^19.1.0

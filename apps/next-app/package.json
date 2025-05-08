@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@common/styles": "workspace:*",
     "@common/ui": "workspace:*",
     "@common/utils": "workspace:*",
     "class-variance-authority": "^0.7.1",

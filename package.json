@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "prepare": "husky",
-    "add": "pnpm --filter",
+    "workspace": "pnpm --filter",
     "next-app": "pnpm --filter next-app",
     "react-app": "pnpm --filter react-app",
     "ui": "pnpm --filter @common/ui",
@@ -40,6 +40,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "@common/types": "workspace:*"
   }
 }
