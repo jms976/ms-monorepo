@@ -13,7 +13,8 @@
     "outDir": "./dist",
     "paths": {
       "@common/ui": ["packages/ui/src"],
-      "@common/utils": ["packages/utils/src"]
+      "@common/utils": ["packages/utils/src"],
+      "@common/styles": ["packages/styles/src"]
     }
   }
 }

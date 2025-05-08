@@ -14,14 +14,22 @@ export default meta;
 
 type Story = StoryObj<ButtonProps>;
 
-export const Primary: Story = {
+export const Default: Story = {
   args: {
-    label: 'Click me',
+    content: 'Click Me',
   },
 };
 
-export const WithEmoji: Story = {
+export const CustomColor: Story = {
   args: {
-    label: '🚀 Launch',
+    content: 'Custom Color',
+    color: '#e91e63', // pink
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    content: 'Disabled',
+    disabled: true,
   },
 };

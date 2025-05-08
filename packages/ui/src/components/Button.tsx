@@ -1,23 +1,35 @@
-export type ButtonProps = {
-  label: string;
-  onClick?: () => void;
-};
+import { forwardRef, Ref, PropsWithChildren, MouseEventHandler, AriaRole, ButtonHTMLAttributes } from 'react';
+import { palette, space } from '@common/styles';
 
-const Button = ({ label, onClick }: ButtonProps) => {
+type AriaButtonProps = Partial<Pick<HTMLButtonElement, 'type' | 'disabled' | 'tabIndex'>>;
+
+export type ButtonProps = PropsWithChildren<{
+  content?: string;
+  role?: AriaRole;
+  color?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+}> &
+  AriaButtonProps &
+  ButtonHTMLAttributes<HTMLButtonElement>;
+
+const Button = forwardRef((props: ButtonProps, ref: Ref<HTMLButtonElement>) => {
+  const { content, color = palette.blue[9], ...rest } = props;
+
   return (
     <button
-      onClick={onClick}
+      ref={ref}
       style={{
-        padding: '8px 16px',
-        borderRadius: 4,
-        backgroundColor: '#0070f3',
-        color: 'white',
+        background: color,
+        color: palette.gray[0],
+        padding: `${space.md} ${space.sm}`,
         border: 'none',
-        cursor: 'pointer',
-      }}>
-      {label}
+      }}
+      {...rest}>
+      {content}
     </button>
   );
-};
+});
+
+Button.displayName = 'Button';
 
 export default Button;
