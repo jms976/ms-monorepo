@@ -1,11 +1,15 @@
+import { Meta, StoryObj } from '@storybook/react';
 import { Button, type ButtonProps } from '@common/ui';
-import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Button> = {
+const meta: Meta = {
   title: 'UI/Button',
   component: Button,
   tags: ['autodocs'],
+  args: {
+    content: 'Click me',
+  },
   argTypes: {
+    color: { control: 'color' },
     onClick: { action: 'clicked' },
   },
 };
@@ -14,22 +18,22 @@ export default meta;
 
 type Story = StoryObj<ButtonProps>;
 
-export const Default: Story = {
+export const Default: Story = {};
+
+export const Disabled: Story = {
   args: {
-    content: 'Click Me',
+    disabled: true,
   },
 };
 
 export const CustomColor: Story = {
   args: {
-    content: 'Custom Color',
-    color: '#e91e63', // pink
+    color: '#FF6347', // Tomato
   },
 };
 
-export const Disabled: Story = {
+export const WithTabIndex: Story = {
   args: {
-    content: 'Disabled',
-    disabled: true,
+    tabIndex: 2,
   },
 };

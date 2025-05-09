@@ -83,4 +83,13 @@
 --w-md: 768px;
 --w-lg: 1024px;
 --w-xlg: 1280px;
+    --space-none: 0;
+--space-xxsm: 2px;
+--space-xsm: 4px;
+--space-sm: 8px;
+--space-md: 12px;
+--space-lg: 16px;
+--space-xlg: 20px;
+--space-xxlg: 24px;
+--space-extra: 40px;
   }

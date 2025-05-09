@@ -1,4 +1,4 @@
-import { generateCssVariables, palette, sizes } from '@common/styles';
+import { generateCssVariables, palette, sizes, space } from '@common/styles';
 import fs from 'fs';
 import path from 'path';
 
@@ -7,6 +7,7 @@ const cssVariables = `
   :root {
     ${generateCssVariables(palette)}
     ${generateCssVariables(sizes)}
+    ${generateCssVariables(space)}
   }
 `;
 

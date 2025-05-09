@@ -12,9 +12,10 @@
     "workspace": "pnpm --filter",
     "next-app": "pnpm --filter next-app",
     "react-app": "pnpm --filter react-app",
-    "ui": "pnpm --filter @common/ui",
+    "jui-app": "pnpm --filter jui-app",
     "utils": "pnpm --filter @common/utils",
     "styles": "pnpm --filter @common/styles",
+    "ui": "pnpm --filter @common/ui",
     "storybook": "pnpm --filter storybook",
     "test-type": "tsc",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ."
@@ -42,5 +43,9 @@
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
     "@common/types": "workspace:*"
+  },
+  "resolutions": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
   }
 }
