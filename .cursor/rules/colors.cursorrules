@@ -1,0 +1,86 @@
+# Color System Rules
+
+## 색상 시스템 규칙
+
+### Primary Colors
+- `juiPrimary`: `#4b63eb` - 주요 액션, 버튼, 링크
+- `juiSecondary`: `#8526e4` - 보조 액션, 강조 요소
+- `juiError`: `#E236B2` - 오류, 경고, 삭제 액션
+
+### Background Colors
+- `juiBackground-default`: `#182036` - 기본 배경색
+- `juiBackground-paper`: `rgba(255, 255, 255, 0.05)` - 카드, 팝오버 배경
+- `juiBackground-popover`: `#101822` - 팝오버, 드롭다운 배경
+- `juiBackground-input`: `rgba(0, 0, 0, 0.3)` - 입력 필드 배경
+- `juiBackground-skeleton`: `#3c4f6b` - 스켈레톤 로딩 배경
+- `juiBackground-tooltip`: `#3B4154` - 툴팁 배경
+- `juiBackground-tableHead`: `#3B4154` - 테이블 헤더 배경
+
+### Text Colors
+- `juiText-primary`: `#fff` - 주요 텍스트
+- `juiText-secondary`: `rgba(255, 255, 255, 0.4)` - 보조 텍스트
+- `juiText-disabled`: `#334259` - 비활성화된 텍스트
+- `juiText-blue`: `#7A97FF` - 링크, 강조 텍스트
+- `juiText-purple`: `#9747FF` - 특별한 강조 텍스트
+- `juiText-tableHead`: `rgba(255, 255, 255, 0.5)` - 테이블 헤더 텍스트
+
+### Border Colors
+- `juiBorder-primary`: `#5A6372` - 기본 테두리
+- `juiBorder-tableBottom`: `#30374B` - 테이블 하단 테두리
+- `juiBorder-tableHead`: `#4B5062` - 테이블 헤더 테두리
+
+### Grey Scale
+- `juiGrey-50`: `rgba(255, 255, 255, 0.05)` - 매우 연한 회색
+- `juiGrey-100`: `rgba(255, 255, 255, 0.1)` - 연한 회색
+- `juiGrey-200`: `rgba(255, 255, 255, 0.2)` - 밝은 회색
+- `juiGrey-300`: `rgba(255, 255, 255, 0.3)` - 중간 회색
+- `juiGrey-400`: `rgba(255, 255, 255, 0.4)` - 표준 회색
+- `juiGrey-500`: `rgba(255, 255, 255, 0.5)` - 중간 어두운 회색
+- `juiGrey-600`: `rgba(255, 255, 255, 0.6)` - 어두운 회색
+- `juiGrey-700`: `rgba(255, 255, 255, 0.7)` - 매우 어두운 회색
+- `juiGrey-800`: `rgba(255, 255, 255, 0.8)` - 거의 검은 회색
+- `juiGrey-900`: `#333333` - 거의 검은색
+- `juiGrey-a100`: `#EEEEEE` - 매우 밝은 회색
+- `juiGrey-a200`: `#E0E0E0` - 밝은 회색
+- `juiGrey-a400`: `#9E9E9E` - 중간 회색
+- `juiGrey-a700`: `#3B4154` - 어두운 회색
+
+### Status Colors
+- `juiStatus-progress`: `#3b53da` - 진행 중 상태
+- `juiStatus-complete`: `#3a9f6c` - 완료 상태
+- `juiStatus-failed`: `#e236b2` - 실패 상태
+- `juiStatus-info`: `#29A3E8` - 정보 상태
+- `juiStatus-boundary`: `#1CC8DE` - 경계 상태
+- `juiStatus-alert`: `#27C977` - 알림 상태
+- `juiStatus-critical`: `#E0E329` - 위험 상태
+- `juiStatus-urgency`: `#FF981F` - 긴급 상태
+
+### Score Colors
+- `juiScore-veryLow`: `#8294FF` - 매우 낮은 점수
+- `juiScore-low`: `#5873FF` - 낮은 점수
+- `juiScore-normal`: `#7635FF` - 보통 점수
+- `juiScore-high`: `#BC2FFF` - 높은 점수
+- `juiScore-veryHigh`: `#FE3284` - 매우 높은 점수
+- `juiScore-extra`: `#5630E3` - 특별한 점수
+- `juiScore-practice`: `#232D5B` - 연습 점수
+- `juiScore-alert`: `#ff0000` - 경고 점수
+
+### 사용 규칙
+
+1. **일관성**: 항상 palette.ts의 토큰 사용
+2. **의미**: 색상의 의미에 맞게 사용
+3. **접근성**: 충분한 대비 확보
+4. **다크모드**: 자동으로 다크모드 지원
+
+### 적용 예시
+
+```tsx
+// 올바른 사용
+className="bg-juiPrimary text-white"
+className="border-juiBorder-primary"
+className="text-juiText-secondary"
+
+// 잘못된 사용
+className="bg-blue-500" // 직접 색상 사용 금지
+className="text-gray-400" // 직접 색상 사용 금지
+``` 

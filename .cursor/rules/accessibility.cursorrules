@@ -1,0 +1,149 @@
+# Accessibility & Animation Rules
+
+## 접근성 및 애니메이션 규칙
+
+### 접근성 (Accessibility)
+
+#### data-slot 속성
+- 모든 컴포넌트에 고유한 `data-slot` 속성 포함
+- 형식: `data-slot="component-name"`, `data-slot="component-name-part"`
+
+```tsx
+// 올바른 사용
+<ComponentRoot data-slot="button" />
+<ComponentTrigger data-slot="button-trigger" />
+<ComponentContent data-slot="button-content" />
+```
+
+#### 키보드 네비게이션
+- Radix UI 기본 키보드 네비게이션 지원
+- Tab, Enter, Space, Arrow keys 지원
+- 포커스 관리 및 포커스 트랩 구현
+
+#### 포커스 관리
+- `focus-visible` 스타일 적용
+- 포커스 표시자 명확하게 표시
+- 포커스 순서 논리적으로 구성
+
+```tsx
+// 포커스 스타일 예시
+className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-juiPrimary"
+```
+
+#### ARIA 속성
+- 적절한 ARIA 라벨 및 역할 설정
+- 상태 변경 시 ARIA 속성 업데이트
+- 스크린 리더 지원
+
+### 애니메이션 (Animation)
+
+#### Radix UI 상태 기반 애니메이션
+- `data-[state=open]`: 열린 상태
+- `data-[state=closed]`: 닫힌 상태
+- `data-[state=checked]`: 체크된 상태
+- `data-[state=unchecked]`: 체크되지 않은 상태
+
+```tsx
+// 상태 기반 애니메이션 예시
+className={cn(
+  "data-[state=open]:animate-in data-[state=open]:fade-in-0",
+  "data-[state=closed]:animate-out data-[state=closed]:fade-out-0"
+)}
+```
+
+#### 진입 애니메이션 (Enter Animations)
+- `animate-in`: 진입 애니메이션 시작
+- `fade-in-0`: 페이드 인 (투명도 0에서 1)
+- `slide-in-from-top-2`: 위에서 슬라이드
+- `slide-in-from-bottom-2`: 아래에서 슬라이드
+- `slide-in-from-left-2`: 왼쪽에서 슬라이드
+- `slide-in-from-right-2`: 오른쪽에서 슬라이드
+- `zoom-in-95`: 확대 효과 (95%에서 100%)
+
+#### 퇴장 애니메이션 (Exit Animations)
+- `animate-out`: 퇴장 애니메이션 시작
+- `fade-out-0`: 페이드 아웃 (투명도 1에서 0)
+- `slide-out-to-top-2`: 위로 슬라이드
+- `slide-out-to-bottom-2`: 아래로 슬라이드
+- `slide-out-to-left-2`: 왼쪽으로 슬라이드
+- `slide-out-to-right-2`: 오른쪽으로 슬라이드
+- `zoom-out-95`: 축소 효과 (100%에서 95%)
+
+#### 방향별 애니메이션
+```tsx
+// 팝오버 방향별 애니메이션
+"data-[side=bottom]:slide-in-from-top-2",
+"data-[side=left]:slide-in-from-right-2",
+"data-[side=right]:slide-in-from-left-2",
+"data-[side=top]:slide-in-from-bottom-2"
+```
+
+#### 트랜지션 (Transitions)
+- `transition-all`: 모든 속성 트랜지션
+- `duration-200`: 200ms 지속시간
+- `duration-300`: 300ms 지속시간
+- `duration-500`: 500ms 지속시간
+- `ease-in-out`: 부드러운 가속/감속
+- `ease-out`: 빠른 시작, 느린 종료
+
+```tsx
+// 트랜지션 예시
+className="transition-all duration-500 ease-in-out"
+```
+
+### 호버 및 포커스 효과
+
+#### 호버 효과
+```tsx
+// 기본 호버 효과
+className="hover:opacity-50"
+className="hover:bg-juiGrey-300"
+className="hover:scale-105"
+```
+
+#### 포커스 효과
+```tsx
+// 포커스 효과
+className="focus-visible:ring-2 focus-visible:ring-juiPrimary"
+className="focus-visible:outline-none"
+```
+
+### 애니메이션 성능 최적화
+
+#### GPU 가속
+- `transform` 속성 사용으로 GPU 가속 활용
+- `opacity` 변경으로 부드러운 페이드 효과
+- `will-change` 속성으로 브라우저 최적화 힌트
+
+#### 애니메이션 지속시간
+- 빠른 반응: 150-200ms
+- 표준 애니메이션: 300-500ms
+- 느린 애니메이션: 700ms 이상
+
+### 사용 예시
+
+```tsx
+// 팝오버 애니메이션
+<PopoverContent className={cn(
+  "data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95",
+  "data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+  "data-[side=bottom]:slide-in-from-top-2",
+  "data-[side=left]:slide-in-from-right-2",
+  "data-[side=right]:slide-in-from-left-2",
+  "data-[side=top]:slide-in-from-bottom-2"
+)} />
+
+// 버튼 호버/포커스 효과
+<Button className={cn(
+  "transition-all duration-200 ease-in-out",
+  "hover:scale-105 hover:shadow-lg",
+  "focus-visible:ring-2 focus-visible:ring-juiPrimary focus-visible:outline-none"
+)} />
+```
+
+### 주의사항
+
+1. **성능**: 과도한 애니메이션 지양
+2. **접근성**: 애니메이션 선호도 설정 고려
+3. **일관성**: 프로젝트 전체에서 일관된 애니메이션 사용
+4. **사용자 경험**: 자연스럽고 직관적인 애니메이션 제공 

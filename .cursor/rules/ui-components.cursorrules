@@ -1,0 +1,200 @@
+# UI Component Generation Rules
+
+## UI 컴포넌트 생성 규칙
+
+### 컴포넌트 구조
+
+1. **Parts 파일 생성**
+   - `ComponentNameParts.tsx` 파일 생성
+   - Radix UI primitives를 기반으로 구성
+   - 각 part는 `data-slot` 속성 포함
+
+2. **메인 컴포넌트 파일**
+   - `ComponentName.tsx` 파일 생성
+   - Parts를 import하여 사용
+   - Root 컴포넌트는 `ComponentNameRoot`로 명명
+
+3. **Variants 파일**
+   - `componentNameVariants.ts` 파일 생성
+   - `tailwind-variants` 사용
+   - 색상은 `packages/tokens/src/palette.ts` 참조
+
+4. **Index 파일**
+   - `index.ts` 파일 생성
+   - 메인 컴포넌트, Parts, Variants 모두 export
+
+### 색상 시스템
+
+**Primary Colors:**
+- `juiPrimary`: `#4b63eb`
+- `juiSecondary`: `#8526e4`
+- `juiError`: `#E236B2`
+
+**Background Colors:**
+- `juiBackground-default`: `#182036`
+- `juiBackground-paper`: `rgba(255, 255, 255, 0.05)`
+- `juiBackground-popover`: `#101822`
+- `juiBackground-input`: `rgba(0, 0, 0, 0.3)`
+
+**Text Colors:**
+- `juiText-primary`: `#fff`
+- `juiText-secondary`: `rgba(255, 255, 255, 0.4)`
+- `juiText-disabled`: `#334259`
+
+**Border Colors:**
+- `juiBorder-primary`: `#5A6372`
+
+### 컴포넌트별 특성
+
+#### Popover
+- **Parts**: Root, Trigger, Content, Anchor, Close, Arrow, Portal
+- **Variants**: variant (primary, secondary, error, default), size (small, basic, medium, large), isCloseIcon, isArrow
+- **특징**: 포털 렌더링, 애니메이션, 방향별 슬라이드 효과
+
+#### Button
+- **Variants**: variant (primary, secondary, error, default, gradient, transparent, transparentGrey), size (small, basic, medium, large), disabled
+- **특징**: asChild 지원, 아이콘 포함 가능, 호버/포커스 상태
+
+#### Dialog
+- **Parts**: Root, Trigger, Content, Header, Title, Description, Footer, Close
+- **Variants**: variant, size
+- **특징**: 모달 오버레이, 포커스 트랩
+
+#### Select
+- **Parts**: Root, Trigger, Content, Item, ItemText, ItemIndicator, Group, Label, Separator
+- **Variants**: variant, size
+- **특징**: 키보드 네비게이션, 검색 기능
+
+#### Tabs
+- **Parts**: Root, List, Trigger, Content
+- **Variants**: variant, size, orientation
+- **특징**: 수평/수직 탭, 키보드 네비게이션
+
+#### ScrollArea
+- **Parts**: Root, Viewport, Scrollbar, Thumb, Corner
+- **Variants**: variant (default, bordered, card), size (small, basic, medium, large, full)
+- **특징**: 수직/수평 스크롤, 터치 지원, 호버 효과
+
+### 파일 생성 규칙
+
+1. **Parts 파일 구조**
+   ```tsx
+   'use client';
+   
+   import * as ComponentPrimitive from '@radix-ui/react-component';
+   import { cn } from '../../lib/utils';
+   
+   function ComponentNameRoot({ ...props }: React.ComponentProps<typeof ComponentPrimitive.Root>) {
+     return <ComponentPrimitive.Root data-slot="component-name" {...props} />;
+   }
+   
+   function ComponentNameTrigger({ ...props }: React.ComponentProps<typeof ComponentPrimitive.Trigger>) {
+     return <ComponentPrimitive.Trigger data-slot="component-name-trigger" {...props} />;
+   }
+   
+   // ... 기타 parts
+   
+   export { ComponentNameRoot, ComponentNameTrigger, ... };
+   ```
+
+2. **Variants 파일 구조**
+   ```tsx
+   import { tv } from 'tailwind-variants';
+   
+   const componentNameVariants = tv({
+     base: [
+       // 기본 스타일
+     ],
+     variants: {
+       variant: {
+         primary: 'bg-juiPrimary text-white',
+         secondary: 'bg-juiSecondary text-white',
+         error: 'bg-juiError text-white',
+         default: 'bg-juiBackground-default text-juiText-primary',
+       },
+       size: {
+         small: 'px-2 h-5.5 text-xs',
+         basic: 'px-2 h-7 text-xs',
+         medium: 'px-4 h-8 text-sm',
+         large: 'px-5 h-9 text-base',
+       },
+     },
+     defaultVariants: {
+       variant: 'default',
+       size: 'basic',
+     },
+   });
+   
+   export default componentNameVariants;
+   ```
+
+3. **메인 컴포넌트 구조**
+   ```tsx
+   'use client';
+   
+   import * as React from 'react';
+   import { type VariantProps } from 'tailwind-variants';
+   import { ComponentNameRoot, ComponentNameTrigger, ... } from './ComponentNameParts';
+   import componentNameVariants from './componentNameVariants';
+   import { cn } from '../../lib/utils';
+   
+   type ComponentNameProps = React.ComponentProps<typeof ComponentNameRoot> &
+     VariantProps<typeof componentNameVariants> & {
+       // 추가 props
+     };
+   
+   function ComponentName({
+     className,
+     variant,
+     size,
+     ...props
+   }: ComponentNameProps) {
+     return (
+       <ComponentNameRoot className={cn(componentNameVariants({ variant, size }), className)} {...props}>
+         {/* 컴포넌트 내용 */}
+       </ComponentNameRoot>
+     );
+   }
+   
+   export default ComponentName;
+   ```
+
+4. **Index 파일 구조**
+   ```tsx
+   export { default as ComponentName } from './ComponentName';
+   export { ComponentNameRoot, ComponentNameTrigger, ... } from './ComponentNameParts';
+   export { default as componentNameVariants } from './componentNameVariants';
+   ```
+
+### 아이콘 사용
+
+- **Import 경로**: `@common/ui/icons` 또는 `../../icons`
+- **사용 예시**: `<XIcon size="small" className="hover:opacity-50" />`
+- **크기 옵션**: small, basic, medium, large
+
+### 애니메이션 및 상태
+
+- **Radix UI 상태**: `data-[state=open]`, `data-[state=closed]`
+- **애니메이션**: `animate-in`, `animate-out`, `fade-in-0`, `slide-in-from-top-2`
+- **트랜지션**: `transition-all duration-500 ease-in-out`
+
+### 접근성
+
+- **data-slot**: 모든 컴포넌트에 고유한 slot 이름
+- **키보드 네비게이션**: Radix UI 기본 지원
+- **포커스 관리**: `focus-visible` 스타일 적용
+
+### 사용 예시
+
+```
+사용자: "Popover 컴포넌트 만들어줘"
+AI: PopoverParts.tsx, Popover.tsx, popoverVariants.ts, index.ts 파일 생성
+```
+
+### 주의사항
+
+- 모든 컴포넌트는 'use client' 지시어 포함
+- 색상은 palette.ts의 토큰 사용
+- variants는 tailwind-variants로 관리
+- Parts 파일의 컴포넌트명은 Root 접미사 포함
+- Index 파일은 모든 export를 포함해야 함 
