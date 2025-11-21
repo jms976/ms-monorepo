@@ -3,8 +3,8 @@ import { create } from '@storybook/theming';
 
 const theme = create({
   base: 'light',
-  brandTitle: 'JASON',
-  brandImage: 'images/jmachine-logo.png',
+  brandTitle: 'MS Design System',
+  brandImage: 'images/msui-logo.webp',
   brandUrl: '/',
   brandTarget: '_self',
 });
