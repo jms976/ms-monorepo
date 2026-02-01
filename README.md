@@ -42,6 +42,7 @@ ms-monorepo/
 │   ├── eslint-config/   # 공통 ESLint 설정
 │   ├── typescript-config/ # 공통 TypeScript 설정
 │   └── jest-config/     # 공통 Jest 설정
+├── scripts/             # 자동화 스크립트
 └── storybook/           # 컴포넌트 문서화
 ```
 
@@ -57,6 +58,15 @@ ms-monorepo/
 | `pnpm test:type` | 타입 체크 |
 | `pnpm generate:palette` | CSS 팔레트 생성 |
 | `pnpm generate:icon` | 아이콘 어노테이션 생성 |
+
+## scripts 디렉터리
+
+빌드/개발 지원용 자동화 스크립트가 위치합니다.
+
+| 파일 | 명령어 | 설명 |
+|------|--------|------|
+| `generateCss.ts` | `pnpm generate:palette` | `@common/tokens`의 palette를 읽어 CSS 변수(`:root`, `@theme`, `.light` 등)를 생성하고 `packages/ui/src/styles/custom.css`에 출력합니다. 토큰 palette 수정 시 실행 필요 |
+| `generateIconAnnotation.ts` | `pnpm generate:icon` | `packages/ui/src/icons/Icon`의 TSX 아이콘 파일을 스캔하여, JSX 내용을 base64 SVG로 변환한 뒤 JSDoc `@preview` 주석을 추가합니다. IDE/Storybook에서 아이콘 미리보기용 |
 
 ## 앱별 실행
 
