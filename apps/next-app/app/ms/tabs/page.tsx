@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  Badge,
   Button,
   Calendar,
   CalendarTime,
@@ -17,6 +18,8 @@ import { PlayIcon, StarIcon } from '@common/ui/icons';
 import { toast } from 'sonner';
 import { format } from 'date-fns';
 import { cn } from '@common/ui/lib/utils';
+import MotionWrapper from '../components/motion/MotionWrapper';
+import { AnimatePresence, type MotionProps } from 'framer-motion';
 
 export default function TabsPage() {
   function ScenarioList(props: { scenarioId: number }) {
@@ -172,7 +175,48 @@ export default function TabsPage() {
   };
 
   function ComplexScenario(props: ComplexScenarioProps) {
-    return <div className="bg-juiBackground-paper w-full p-4">Complex {props.name}</div>;
+    const [isEnd, setIsEnd] = useState(false);
+    const [open, setIsOpen] = useState(false);
+
+    const motionProps: MotionProps = {
+      initial: { opacity: 0, y: -100 },
+      animate: { opacity: 1, y: 0 },
+      exit: { opacity: 0, y: -100 },
+      transition: { duration: 0.5 },
+    };
+
+    return (
+      <>
+        <div className="bg-juiBackground-paper w-full p-4">Complex {props.name}</div>
+        <Button onClick={() => setIsOpen(!open)}>aa</Button>
+        <AnimatePresence>
+          <MotionWrapper key="1" asChild={true} {...motionProps}>
+            <div>Complex {props.name}</div>
+          </MotionWrapper>
+
+          {isEnd && (
+            <MotionWrapper key="4" {...motionProps}>
+              <Badge>open</Badge>
+            </MotionWrapper>
+          )}
+
+          {open && (
+            <MotionWrapper
+              key="3"
+              {...motionProps}
+              asChild={false}
+              as="button"
+              className="flex text-juiScore-extra bg-juiError p-2">
+              <div>aaaa</div>
+            </MotionWrapper>
+          )}
+
+          <MotionWrapper key="2" {...motionProps} onAnimationComplete={() => setIsEnd(true)}>
+            <div>Complex 3</div>
+          </MotionWrapper>
+        </AnimatePresence>
+      </>
+    );
   }
 
   const [acitveTab, setActiveTab] = useState('');
