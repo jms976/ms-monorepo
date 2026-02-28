@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import type { ElementType, ExoticComponent, ReactElement, ReactNode } from 'react';
 import type { HTMLMotionProps } from 'framer-motion';
 
+/** Todos 최신 MotionSlot으로 변경 필요
+
+*/
 type MotionTag = keyof HTMLElementTagNameMap;
 
 type NonFragmentElement = ReactElement<{ children?: ReactNode }> & {
