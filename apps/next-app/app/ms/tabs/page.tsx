@@ -7,6 +7,7 @@ import {
   CalendarTime,
   DateRange,
   Input,
+  MotionSlot,
   Popover,
   Separator,
   Skeleton,
@@ -185,37 +186,70 @@ export default function TabsPage() {
       transition: { duration: 0.5 },
     };
 
+    const containerVariants = {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.2, // 각 항목이 0.2초 간격으로 등장
+        },
+      },
+    };
+
+    const itemVariants = {
+      hidden: { opacity: 0, y: 20 },
+      visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    };
+
+    const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
+
     return (
-      <>
+      <div className="flex flex-col gap-4">
         <div className="bg-juiBackground-paper w-full p-4">Complex {props.name}</div>
         <Button onClick={() => setIsOpen(!open)}>aa</Button>
+        <MotionSlot
+          childrenMode="wrap"
+          as="ul"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="flex flex-col gap-7">
+          {items.map((item, index) => (
+            <MotionSlot key={index} variants={itemVariants}>
+              <li className="p-4 rounded border-2 border-juiBorder-primary">{item}</li>
+            </MotionSlot>
+          ))}
+        </MotionSlot>
         <AnimatePresence>
-          <MotionWrapper key="1" asChild={true} {...motionProps}>
+          <MotionSlot key="1" {...motionProps}>
             <div>Complex {props.name}</div>
-          </MotionWrapper>
+          </MotionSlot>
+          <MotionSlot key="99" {...motionProps}>
+            <>Complex {props.name}222</>
+          </MotionSlot>
 
           {isEnd && (
-            <MotionWrapper key="4" {...motionProps}>
+            <MotionSlot key="4" {...motionProps}>
               <Badge>open</Badge>
-            </MotionWrapper>
+            </MotionSlot>
           )}
 
           {open && (
-            <MotionWrapper
+            <MotionSlot
               key="3"
               {...motionProps}
-              asChild={false}
+              childrenMode="wrap"
               as="button"
               className="flex text-juiScore-extra bg-juiError p-2">
               <div>aaaa</div>
-            </MotionWrapper>
+            </MotionSlot>
           )}
 
           <MotionWrapper key="2" {...motionProps} onAnimationComplete={() => setIsEnd(true)}>
             <div>Complex 3</div>
           </MotionWrapper>
         </AnimatePresence>
-      </>
+      </div>
     );
   }
 

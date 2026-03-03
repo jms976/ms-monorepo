@@ -289,3 +289,5 @@ export {
 } from './TreeView';
 
 export { DataTable, type DataTableProps } from './DataTable';
+
+export { MotionSlot, type MotionSlotProps } from './MotionSlot';
