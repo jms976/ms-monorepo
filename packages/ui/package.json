@@ -10,14 +10,6 @@
     "test": "pnpm exec jest",
     "test:lintstage": "pnpm exec jest --passWithNoTests --findRelatedTests"
   },
-  "pnpm": {
-    "overrides": {
-      "react": "19.2.0",
-      "react-dom": "19.2.0",
-      "@types/react": "19.0.0",
-      "@types/react-dom": "19.0.0"
-    }
-  },
   "dependencies": {
     "@common/tokens": "workspace:*",
     "@dnd-kit/core": "^6.3.1",
