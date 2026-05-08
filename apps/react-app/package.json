@@ -15,20 +15,21 @@
     "@common/ui": "workspace:^",
     "@common/utils": "workspace:^",
     "@tailwindcss/vite": "^4.1.6",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "next": "15.5.18",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "vite-plugin-svgr": "^4.3.0"
   },
   "devDependencies": {
     "@common/eslint-config": "workspace:^",
     "@common/typescript-config": "workspace:^",
     "@types/node": "^22.15.17",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.4.1",
     "globals": "^16.0.0",
+    "typescript": "^5.8.3",
     "vite": "^6.3.5",
-    "vite-tsconfig-paths": "^5.1.4",
-    "typescript": "^5.8.3"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
