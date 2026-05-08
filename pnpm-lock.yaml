@@ -25,7 +25,7 @@ importers:
         version: 6.9.1
       '@testing-library/react':
         specifier: ^16.3.0
-        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.3.0-canary-dd453071-20260506(react@19.3.0-canary-dd453071-20260506))(react@19.3.0-canary-dd453071-20260506)
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/jest':
         specifier: ^30.0.0
         version: 30.0.0
@@ -5861,11 +5861,6 @@ packages:
     peerDependencies:
       react: ^19.2.0
 
-  react-dom@19.3.0-canary-dd453071-20260506:
-    resolution: {integrity: sha512-I7e3jgAlWH9X4R450dOtEVkH0SsgKEaXXKmGhBsCQewR6iyWkKQpJEHCdmaqWEe4YRyViVHIVKD1NABYJmCyyA==}
-    peerDependencies:
-      react: 19.3.0-canary-dd453071-20260506
-
   react-error-boundary@6.1.1:
     resolution: {integrity: sha512-BrYwPOdXi5mqkk5lw+Uvt0ThHx32rCt3BkukS4X23A2AIWDPSGX6iaWTc0y9TU/mHDA/6qOSGel+B2ERkOvD1w==}
     peerDependencies:
@@ -5925,10 +5920,6 @@ packages:
 
   react@19.2.0:
     resolution: {integrity: sha512-tmbWg6W31tQLeB5cdIBOicJDJRR2KzXsV7uSK9iNfLWQ5bIZfxuPEHp7M8wiHyHnn0DD1i7w3Zmin0FtkrwoCQ==}
-    engines: {node: '>=0.10.0'}
-
-  react@19.3.0-canary-dd453071-20260506:
-    resolution: {integrity: sha512-YDiDSwJgUCQQJ72bt7V897ln9jut5WqDLQN94b49X1YdxfDT6G5ZtXSLUDHzl4El+qG8xzYEcEl7IpS+sYkwng==}
     engines: {node: '>=0.10.0'}
 
   recast@0.23.11:
@@ -6038,9 +6029,6 @@ packages:
 
   scheduler@0.27.0:
     resolution: {integrity: sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q==}
-
-  scheduler@0.28.0-canary-dd453071-20260506:
-    resolution: {integrity: sha512-VOK9IDz+kVNSyv+zxCVDxPjAznaL6ECSq66uc27pZI9g7BJ9B4Mi7cOGzXIJ8yBDn7LFgitev4bac/HfBBH5vQ==}
 
   semver@6.3.1:
     resolution: {integrity: sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==}
@@ -9748,12 +9736,12 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.3.0-canary-dd453071-20260506(react@19.3.0-canary-dd453071-20260506))(react@19.3.0-canary-dd453071-20260506)':
+  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@babel/runtime': 7.29.2
       '@testing-library/dom': 10.4.1
-      react: 19.3.0-canary-dd453071-20260506
-      react-dom: 19.3.0-canary-dd453071-20260506(react@19.3.0-canary-dd453071-20260506)
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
     optionalDependencies:
       '@types/react': 19.2.14
       '@types/react-dom': 19.2.3(@types/react@19.2.14)
@@ -12481,11 +12469,6 @@ snapshots:
       react: 19.2.0
       scheduler: 0.27.0
 
-  react-dom@19.3.0-canary-dd453071-20260506(react@19.3.0-canary-dd453071-20260506):
-    dependencies:
-      react: 19.3.0-canary-dd453071-20260506
-      scheduler: 0.28.0-canary-dd453071-20260506
-
   react-error-boundary@6.1.1(react@19.2.0):
     dependencies:
       react: 19.2.0
@@ -12532,8 +12515,6 @@ snapshots:
       '@types/react': 19.2.14
 
   react@19.2.0: {}
-
-  react@19.3.0-canary-dd453071-20260506: {}
 
   recast@0.23.11:
     dependencies:
@@ -12689,8 +12670,6 @@ snapshots:
       xmlchars: 2.2.0
 
   scheduler@0.27.0: {}
-
-  scheduler@0.28.0-canary-dd453071-20260506: {}
 
   semver@6.3.1: {}
 
