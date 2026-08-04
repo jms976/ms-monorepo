@@ -4,6 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import styled from '@emotion/styled';
 import { AnimatePresence, motion, MotionProps } from 'framer-motion';
 import { ReactNode, useEffect, useRef, useState } from 'react';
+import { AnimatedBorder } from '../components/AnimatedBorder';
 
 interface BottomSheetProps {
   open: boolean;
@@ -107,6 +108,8 @@ export default function Example() {
   return (
     <>
       <Item onClick={() => setOpen(true)}>리스트 아이템</Item>
+
+      <AnimatedBorder radius="20rem">Gradient Border</AnimatedBorder>
 
       <BottomSheet open={open} onOpenChange={setOpen}>
         {(expanded: boolean) =>
